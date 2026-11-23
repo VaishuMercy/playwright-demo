@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GreenKart Playwright Test Report</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #17212b;
+      background: #f3f6f9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1 { margin: 0; font-size: 30px; }
+
+    .subtitle { margin: 8px 0 24px; color: #536273; }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .card, .results {
+      border: 1px solid #dce4ec;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 3px 12px #17212b0a;
+    }
+
+    .card { padding: 18px; }
+    .label { color: #617184; font-size: 13px; }
+    .value { display: block; margin-top: 6px; font-size: 24px; font-weight: 700; }
+    .passed { color: #13834b; }
+
+    .results { overflow: hidden; }
+    .results h2 { margin: 0; padding: 18px 20px; font-size: 18px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 20px;
+      border-top: 1px solid #e8edf2;
+      vertical-align: top;
+    }
+
+    th {
+      color: #536273;
+      background: #f8fafc;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      color: #13834b;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .notes {
+      margin: 18px 2px 0;
+      color: #536273;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 24px 12px; }
+      th, td { padding: 12px; }
+      .duration { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>GreenKart Test Report</h1>
+    <p class="subtitle">Playwright automated test results for basic shopping operations</p>
+
+    <section class="summary" aria-label="Run summary">
+      <div class="card">
+        <span class="label">Overall result</span>
+        <span class="value passed">Passed</span>
+      </div>
+      <div class="card">
+        <span class="label">Tests</span>
+        <span class="value">6 / 6</span>
+      </div>
+      <div class="card">
+        <span class="label">Browser</span>
+        <span class="value">Chromium</span>
+      </div>
+      <div class="card">
+        <span class="label">Run duration</span>
+        <span class="value">23.4 sec</span>
+      </div>
+      <div class="card">
+        <span class="label">Workers</span>
+        <span class="value">4</span>
+      </div>
+    </section>
+
+    <section class="results" aria-labelledby="results-heading">
+      <h2 id="results-heading">Test results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Test case</th>
+            <th scope="col">Result</th>
+            <th scope="col" class="duration">Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shows product cards and filters results, including the empty state</td>
+            <td class="status">Passed</td>
+            <td class="duration">13.9 sec</td>
+          </tr>
+          <tr>
+            <td>Increments and decrements quantity without going below one</td>
+            <td class="status">Passed</td>
+            <td class="duration">14.1 sec</td>
+          </tr>
+          <tr>
+            <td>Adds two apples and verifies the checkout summary without placing an order</td>
+            <td class="status">Passed</td>
+            <td class="duration">15.4 sec</td>
+          </tr>
+          <tr>
+            <td>Rejects an invalid promo code without changing the total</td>
+            <td class="status">Passed</td>
+            <td class="duration">20.9 sec</td>
+          </tr>
+          <tr>
+            <td>Searches and sorts offers, including a no-match query</td>
+            <td class="status">Passed</td>
+            <td class="duration">3.7 sec</td>
+          </tr>
+          <tr>
+            <td>Changes page size and navigates pagination boundaries</td>
+            <td class="status">Passed</td>
+            <td class="duration">3.6 sec</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <p class="notes">
+      Run details: Chromium, 4 workers. The checkout test verified the summary and stopped before placing an order.
+      Test sources are in the <code>tests/green-kart/</code> folder.
+    </p>
+  </main>
+</body>
+</html>

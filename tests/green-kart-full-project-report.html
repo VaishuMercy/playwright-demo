@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GreenKart Full Project Test Report</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #17212b;
+      background: #f3f6f9;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 36px 18px; }
+    main { max-width: 1080px; margin: 0 auto; }
+    h1 { margin: 0; font-size: clamp(26px, 4vw, 34px); }
+    h2 { margin: 0; font-size: 19px; }
+    p { line-height: 1.55; }
+    code { color: #344054; }
+    .subtitle { margin: 8px 0 24px; color: #536273; }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card, .panel {
+      background: #fff;
+      border: 1px solid #dce4ec;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #17212b0a;
+    }
+
+    .card { padding: 16px; }
+    .label { color: #617184; font-size: 13px; }
+    .value { display: block; margin-top: 5px; font-size: 23px; font-weight: 700; }
+    .value.fail { color: #b42318; }
+    .value.pass { color: #13834b; }
+    .panel { margin-top: 18px; overflow: hidden; }
+    .panel-heading { padding: 18px 20px; border-bottom: 1px solid #e8edf2; }
+
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 13px 18px; border-bottom: 1px solid #e8edf2; vertical-align: top; }
+    th {
+      color: #536273;
+      background: #f8fafc;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    tr:last-child td { border-bottom: 0; }
+
+    .notice {
+      margin: 0;
+      padding: 14px 20px;
+      color: #536273;
+      background: #f8fafc;
+      border-bottom: 1px solid #e8edf2;
+      font-size: 14px;
+    }
+
+    .failure-list { margin: 0; padding: 0; list-style: none; }
+    .failure {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+      padding: 15px 20px;
+      border-bottom: 1px solid #e8edf2;
+    }
+    .failure:last-child { border-bottom: 0; }
+    .failure-title { margin: 0; font-weight: 650; }
+    .browser {
+      display: inline-block;
+      margin: 0 0 5px;
+      color: #617184;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .tag {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: #8f1d14;
+      background: #fee4e2;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    details.screenshot { margin-top: 10px; color: #344054; font-size: 13px; }
+    details.screenshot summary { cursor: pointer; font-weight: 600; }
+    details.screenshot img {
+      display: block;
+      width: min(100%, 760px);
+      height: auto;
+      margin-top: 10px;
+      border: 1px solid #dce4ec;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    a { color: #175cd3; }
+    footer { margin-top: 18px; color: #617184; font-size: 13px; }
+
+    @media (max-width: 560px) {
+      body { padding: 24px 12px; }
+      .failure { padding: 14px; }
+      th, td { padding: 11px; }
+      .panel-heading, .notice { padding-left: 14px; padding-right: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>GreenKart Full Project Test Report</h1>
+    <p class="subtitle">Playwright results for all test files in the project across the configured browser projects.</p>
+
+    <section class="summary" aria-label="Test run summary">
+      <div class="card">
+        <span class="label">Overall result</span>
+        <span class="value fail">Needs attention</span>
+      </div>
+      <div class="card">
+        <span class="label">Passed</span>
+        <span class="value pass">59</span>
+      </div>
+      <div class="card">
+        <span class="label">Failed</span>
+        <span class="value fail">58</span>
+      </div>
+      <div class="card">
+        <span class="label">Total runs</span>
+        <span class="value">117</span>
+      </div>
+      <div class="card">
+        <span class="label">Test cases / browsers</span>
+        <span class="value">39 / 3</span>
+      </div>
+      <div class="card">
+        <span class="label">Duration / workers</span>
+        <span class="value">6.6 min / 2</span>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="browser-heading">
+      <div class="panel-heading">
+        <h2 id="browser-heading">Results by browser</h2>
+      </div>
+      <table>
+        <thead>
+          <tr><th scope="col">Browser</th><th scope="col">Passed</th><th scope="col">Failed</th><th scope="col">Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chromium</td><td>31 / 39</td><td>8</td>
+            <td>Failures were assertion/behavior mismatches; screenshots are included below.</td>
+          </tr>
+          <tr>
+            <td>Firefox</td><td>0 / 39</td><td>39</td>
+            <td>Browser launch was blocked because <code>msvcp140_1.dll</code> is missing. These are environment failures, not application test results.</td>
+          </tr>
+          <tr>
+            <td>WebKit</td><td>28 / 39</td><td>11</td>
+            <td>Assertion/behavior mismatches; screenshots are included below.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel" aria-labelledby="coverage-heading">
+      <div class="panel-heading">
+        <h2 id="coverage-heading">Test coverage included</h2>
+      </div>
+      <p class="notice">39 test cases were discovered: 30 GreenKart home-page cases, 6 existing GreenKart shopping/Top Deals cases, 2 Playwright example cases, and 1 seed placeholder. Each was run against Chromium, Firefox, and WebKit (117 runs total).</p>
+    </section>
+
+    <section class="panel" aria-labelledby="findings-heading">
+      <div class="panel-heading">
+        <h2 id="findings-heading">Key findings</h2>
+      </div>
+      <ul class="failure-list">
+        <li class="failure">
+          <div>
+            <p class="failure-title">Firefox test execution blocked by the local environment</p>
+            <p class="notice" style="padding:6px 0 0;border:0;background:transparent">All 39 Firefox cases failed to launch because the host is missing <code>msvcp140_1.dll</code>. Install/repair the Microsoft Visual C++ runtime before using Firefox results to assess the app.</p>
+          </div>
+          <span class="tag">39 runs</span>
+        </li>
+        <li class="failure">
+          <div>
+            <p class="failure-title">Quantity validation and cart behavior</p>
+            <p class="notice" style="padding:6px 0 0;border:0;background:transparent">Zero, negative, and fractional quantity cases failed; invalid quantities could remain in inputs or be added to the cart.</p>
+          </div>
+          <span class="tag">Repeated failures</span>
+        </li>
+        <li class="failure">
+          <div>
+            <p class="failure-title">Search and responsive behavior</p>
+            <p class="notice" style="padding:6px 0 0;border:0;background:transparent">Queries with surrounding spaces did not match; the mobile-width search control was unavailable to the test. These failures appeared in Chromium and WebKit.</p>
+          </div>
+          <span class="tag">Chromium / WebKit</span>
+        </li>
+        <li class="failure">
+          <div>
+            <p class="failure-title">Other browser-specific assertions</p>
+            <p class="notice" style="padding:6px 0 0;border:0;background:transparent">Repeated-add cart totals, keyboard focus, checkout-summary text, promo feedback, and reload recovery also had failures. See the detailed Playwright report for each assertion and trace/context.</p>
+          </div>
+          <span class="tag">See details</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-labelledby="screenshots-heading">
+      <div class="panel-heading">
+        <h2 id="screenshots-heading">Failure screenshots (19)</h2>
+      </div>
+      <p class="notice">Expand a failed run to view its screenshot. Firefox screenshots were unavailable because the browser did not launch.</p>
+      <ul class="failure-list">
+        <li class="failure">
+          <div><span class="browser">Chromium</span><p class="failure-title">5.2 — Responsive layout at desktop, tablet, and mobile widths</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-accessibil-9c373-op-tablet-and-mobile-widths-chromium.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-accessibil-9c373-op-tablet-and-mobile-widths-chromium.png" alt="Chromium responsive-layout failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">Chromium</span><p class="failure-title">4.4 — Accumulates repeated additions of the same product</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-cart-Green-a5c5a-ditions-of-the-same-product-chromium.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-cart-Green-a5c5a-ditions-of-the-same-product-chromium.png" alt="Chromium repeated-add cart failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">Chromium</span><p class="failure-title">4.8 — Does not add product with quantity 0</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-cart-Green-b4f35-d-a-product-with-quantity-0-chromium.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-cart-Green-b4f35-d-a-product-with-quantity-0-chromium.png" alt="Chromium cart zero-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">Chromium</span><p class="failure-title">4.8 — Does not add product with quantity -1</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-cart-Green-fbd59--a-product-with-quantity--1-chromium.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-cart-Green-fbd59--a-product-with-quantity--1-chromium.png" alt="Chromium cart negative-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">Chromium</span><p class="failure-title">3.4 — Rejects direct quantity -1</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-quantity-G-e6a2f--rejects-direct-quantity--1-chromium.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-quantity-G-e6a2f--rejects-direct-quantity--1-chromium.png" alt="Chromium direct negative-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">Chromium</span><p class="failure-title">3.4 — Rejects direct quantity 0</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-quantity-G-466a2-4-rejects-direct-quantity-0-chromium.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-quantity-G-466a2-4-rejects-direct-quantity-0-chromium.png" alt="Chromium direct zero-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">Chromium</span><p class="failure-title">3.5 — Rejects fractional quantities</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-quantity-G-3c8c9-jects-fractional-quantities-chromium.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-quantity-G-3c8c9-jects-fractional-quantities-chromium.png" alt="Chromium fractional-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">Chromium</span><p class="failure-title">2.5 — Matches a product when query has surrounding whitespace</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-search-Gre-4a48f--has-surrounding-whitespace-chromium.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-search-Gre-4a48f--has-surrounding-whitespace-chromium.png" alt="Chromium whitespace-search failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">Adds two apples and verifies the checkout summary without placing an order</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-quantity-cart-G-bd2bb-ry-without-placing-an-order-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-quantity-cart-G-bd2bb-ry-without-placing-an-order-webkit.png" alt="WebKit checkout-summary assertion failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">Rejects an invalid promo code without changing the total</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-promo-code-reje-f7f96--without-changing-the-total-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-promo-code-reje-f7f96--without-changing-the-total-webkit.png" alt="WebKit invalid-promo assertion failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">5.2 — Responsive layout at desktop, tablet, and mobile widths</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-accessibil-9c373-op-tablet-and-mobile-widths-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-accessibil-9c373-op-tablet-and-mobile-widths-webkit.png" alt="WebKit responsive-layout failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">5.1 — Operates product and cart controls with keyboard navigation</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-accessibil-cec4a-ls-with-keyboard-navigation-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-accessibil-cec4a-ls-with-keyboard-navigation-webkit.png" alt="WebKit keyboard-navigation failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">5.3 — Reloads the home page and restores usable default state</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-accessibil-9f9f4-stores-usable-default-state-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-accessibil-9f9f4-stores-usable-default-state-webkit.png" alt="WebKit reload-recovery failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">4.8 — Does not add product with quantity 0</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-cart-Green-b4f35-d-a-product-with-quantity-0-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-cart-Green-b4f35-d-a-product-with-quantity-0-webkit.png" alt="WebKit cart zero-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">4.8 — Does not add product with quantity -1</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-cart-Green-fbd59--a-product-with-quantity--1-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-cart-Green-fbd59--a-product-with-quantity--1-webkit.png" alt="WebKit cart negative-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">3.4 — Rejects direct quantity 0</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-quantity-G-466a2-4-rejects-direct-quantity-0-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-quantity-G-466a2-4-rejects-direct-quantity-0-webkit.png" alt="WebKit direct zero-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">3.4 — Rejects direct quantity -1</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-quantity-G-e6a2f--rejects-direct-quantity--1-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-quantity-G-e6a2f--rejects-direct-quantity--1-webkit.png" alt="WebKit direct negative-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">3.5 — Rejects fractional quantities</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-quantity-G-3c8c9-jects-fractional-quantities-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-quantity-G-3c8c9-jects-fractional-quantities-webkit.png" alt="WebKit fractional-quantity failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+        <li class="failure">
+          <div><span class="browser">WebKit</span><p class="failure-title">2.5 — Matches a product when query has surrounding whitespace</p>
+            <details class="screenshot"><summary>View screenshot</summary><a href="report-assets/full-project/green-kart-home-search-Gre-4a48f--has-surrounding-whitespace-webkit.png" target="_blank" rel="noopener"><img src="report-assets/full-project/green-kart-home-search-Gre-4a48f--has-surrounding-whitespace-webkit.png" alt="WebKit whitespace-search failure screenshot"></a></details>
+          </div><span class="tag">Failed</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-labelledby="details-heading">
+      <div class="panel-heading"><h2 id="details-heading">Detailed test report</h2></div>
+      <p class="notice">Detailed per-test assertions and browser traces are available in the local Playwright report generated by <code>npx playwright show-report</code>. The generated report is excluded from source control; this summary and its curated screenshots are portable with the repository.</p>
+    </section>
+
+    <footer>Run used Chromium, Firefox, and WebKit with two workers. The browser test did not submit an order. Firefox launch failures are reported separately from application behavior.</footer>
+  </main>
+</body>
+</html>

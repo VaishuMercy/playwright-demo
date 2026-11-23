@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GreenKart Home Page Test Report</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #17212b;
+      background: #f3f6f9;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+
+    body { margin: 0; padding: 36px 18px; }
+
+    main { max-width: 1080px; margin: 0 auto; }
+
+    h1 { margin: 0; font-size: clamp(26px, 4vw, 34px); }
+    h2 { margin: 0; font-size: 19px; }
+    p { line-height: 1.55; }
+
+    .subtitle { margin: 8px 0 24px; color: #536273; }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .card, .panel {
+      background: #fff;
+      border: 1px solid #dce4ec;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #17212b0a;
+    }
+
+    .card { padding: 16px; }
+    .label { color: #617184; font-size: 13px; }
+    .value { display: block; margin-top: 5px; font-size: 23px; font-weight: 700; }
+    .value.failed { color: #b42318; }
+    .value.passed { color: #13834b; }
+
+    .panel { margin-top: 18px; overflow: hidden; }
+    .panel-heading { padding: 18px 20px; border-bottom: 1px solid #e8edf2; }
+
+    .result-list { margin: 0; padding: 0; list-style: none; }
+    .result {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e8edf2;
+    }
+
+    .result:last-child { border-bottom: 0; }
+    .result-title { margin: 0 0 4px; font-weight: 650; }
+    .detail { margin: 0; color: #536273; font-size: 14px; }
+    .status {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status.fail { color: #8f1d14; background: #fee4e2; }
+    .status.pass { color: #12663a; background: #dcfae6; }
+
+    details.screenshot {
+      margin-top: 12px;
+      color: #344054;
+      font-size: 13px;
+    }
+
+    details.screenshot summary { cursor: pointer; font-weight: 600; }
+
+    details.screenshot img {
+      display: block;
+      width: min(100%, 760px);
+      height: auto;
+      margin-top: 10px;
+      border: 1px solid #dce4ec;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .note {
+      margin: 0;
+      padding: 14px 20px;
+      color: #536273;
+      background: #f8fafc;
+      border-bottom: 1px solid #e8edf2;
+      font-size: 14px;
+    }
+
+    footer { margin-top: 18px; color: #617184; font-size: 13px; }
+    code { color: #344054; }
+
+    @media (max-width: 560px) {
+      body { padding: 24px 12px; }
+      .result { padding: 14px; }
+      .panel-heading { padding: 16px 14px; }
+      .note { padding: 12px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>GreenKart Home Page Test Report</h1>
+    <p class="subtitle">Playwright coverage for the homepage catalog, search, quantity controls, cart preview, accessibility, layout, and recovery.</p>
+
+    <section class="summary" aria-label="Test run summary">
+      <div class="card">
+        <span class="label">Overall result</span>
+        <span class="value failed">Needs attention</span>
+      </div>
+      <div class="card">
+        <span class="label">Passed</span>
+        <span class="value passed">23</span>
+      </div>
+      <div class="card">
+        <span class="label">Failed</span>
+        <span class="value failed">7</span>
+      </div>
+      <div class="card">
+        <span class="label">Total</span>
+        <span class="value">30</span>
+      </div>
+      <div class="card">
+        <span class="label">Browser / workers</span>
+        <span class="value">Chromium / 1</span>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="failures-heading">
+      <div class="panel-heading">
+        <h2 id="failures-heading">Failed scenarios (7)</h2>
+      </div>
+      <ul class="result-list">
+        <li class="result">
+          <div>
+            <p class="result-title">2.5 — Search with surrounding whitespace</p>
+            <p class="detail">Searching for <code>  Carrot  </code> returned no matching product. The search did not trim surrounding spaces.</p>
+            <details class="screenshot">
+              <summary>View failure screenshot</summary>
+              <a href="../report-assets/full-project/green-kart-home-search-Gre-4a48f--has-surrounding-whitespace-chromium.png" target="_blank" rel="noopener">
+                <img src="../report-assets/full-project/green-kart-home-search-Gre-4a48f--has-surrounding-whitespace-chromium.png" alt="Playwright screenshot of the search-with-surrounding-whitespace failure">
+              </a>
+            </details>
+          </div>
+          <span class="status fail">Failed</span>
+        </li>
+        <li class="result">
+          <div>
+            <p class="result-title">3.4 — Reject quantity 0</p>
+            <p class="detail">The quantity input retained 0 instead of correcting or rejecting it.</p>
+            <details class="screenshot">
+              <summary>View failure screenshot</summary>
+              <a href="../report-assets/full-project/green-kart-home-quantity-G-466a2-4-rejects-direct-quantity-0-chromium.png" target="_blank" rel="noopener">
+                <img src="../report-assets/full-project/green-kart-home-quantity-G-466a2-4-rejects-direct-quantity-0-chromium.png" alt="Playwright screenshot of the zero-quantity validation failure">
+              </a>
+            </details>
+          </div>
+          <span class="status fail">Failed</span>
+        </li>
+        <li class="result">
+          <div>
+            <p class="result-title">3.4 — Reject quantity -1</p>
+            <p class="detail">The quantity input retained -1 instead of correcting or rejecting it.</p>
+            <details class="screenshot">
+              <summary>View failure screenshot</summary>
+              <a href="../report-assets/full-project/green-kart-home-quantity-G-e6a2f--rejects-direct-quantity--1-chromium.png" target="_blank" rel="noopener">
+                <img src="../report-assets/full-project/green-kart-home-quantity-G-e6a2f--rejects-direct-quantity--1-chromium.png" alt="Playwright screenshot of the negative-quantity validation failure">
+              </a>
+            </details>
+          </div>
+          <span class="status fail">Failed</span>
+        </li>
+        <li class="result">
+          <div>
+            <p class="result-title">3.5 — Reject fractional quantity</p>
+            <p class="detail">The quantity input retained 1.5, although the expected quantity is a positive whole number.</p>
+            <details class="screenshot">
+              <summary>View failure screenshot</summary>
+              <a href="../report-assets/full-project/green-kart-home-quantity-G-3c8c9-jects-fractional-quantities-chromium.png" target="_blank" rel="noopener">
+                <img src="../report-assets/full-project/green-kart-home-quantity-G-3c8c9-jects-fractional-quantities-chromium.png" alt="Playwright screenshot of the fractional-quantity validation failure">
+              </a>
+            </details>
+          </div>
+          <span class="status fail">Failed</span>
+        </li>
+        <li class="result">
+          <div>
+            <p class="result-title">4.8 — Prevent quantity 0 from entering the cart</p>
+            <p class="detail">Adding Apple at quantity 0 created a cart line instead of leaving the cart empty.</p>
+            <details class="screenshot">
+              <summary>View failure screenshot</summary>
+              <a href="../report-assets/full-project/green-kart-home-cart-Green-b4f35-d-a-product-with-quantity-0-chromium.png" target="_blank" rel="noopener">
+                <img src="../report-assets/full-project/green-kart-home-cart-Green-b4f35-d-a-product-with-quantity-0-chromium.png" alt="Playwright screenshot of the cart accepting zero quantity">
+              </a>
+            </details>
+          </div>
+          <span class="status fail">Failed</span>
+        </li>
+        <li class="result">
+          <div>
+            <p class="result-title">4.8 — Prevent quantity -1 from entering the cart</p>
+            <p class="detail">Adding Apple at quantity -1 created a cart line instead of leaving the cart empty.</p>
+            <details class="screenshot">
+              <summary>View failure screenshot</summary>
+              <a href="../report-assets/full-project/green-kart-home-cart-Green-fbd59--a-product-with-quantity--1-chromium.png" target="_blank" rel="noopener">
+                <img src="../report-assets/full-project/green-kart-home-cart-Green-fbd59--a-product-with-quantity--1-chromium.png" alt="Playwright screenshot of the cart accepting negative quantity">
+              </a>
+            </details>
+          </div>
+          <span class="status fail">Failed</span>
+        </li>
+        <li class="result">
+          <div>
+            <p class="result-title">5.2 — Use core controls at desktop, tablet, and mobile widths</p>
+            <p class="detail">At a 320px mobile viewport, the search control could not be found or reached by its accessible role and name. The responsive scenario timed out at this check.</p>
+            <details class="screenshot">
+              <summary>View failure screenshot</summary>
+              <a href="../report-assets/full-project/green-kart-home-accessibil-9c373-op-tablet-and-mobile-widths-chromium.png" target="_blank" rel="noopener">
+                <img src="../report-assets/full-project/green-kart-home-accessibil-9c373-op-tablet-and-mobile-widths-chromium.png" alt="Playwright screenshot of the responsive mobile-search failure">
+              </a>
+            </details>
+          </div>
+          <span class="status fail">Failed</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="panel" aria-labelledby="passed-heading">
+      <div class="panel-heading">
+        <h2 id="passed-heading">Passed coverage (23)</h2>
+      </div>
+      <p class="note">Passed checks covered home-page/catalog rendering, product-card details, catalog browsing, exact/partial and case-insensitive search, no-results and clear-search behavior, quantity increment/decrement and recovery, valid quantity entry, cart totals and product removal, keyboard operations, desktop/tablet layout checks, and page reload recovery.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="scope-heading">
+      <div class="panel-heading">
+        <h2 id="scope-heading">Run details and scope</h2>
+      </div>
+      <p class="note">This report reflects the latest recorded targeted run: <strong>30 tests, 23 passed, 7 failed</strong>, Chromium, one worker. Failure screenshots were captured by Playwright and are expandable under each failed scenario. Tests were run against the public GreenKart demo homepage. Checkout and order submission were not performed.</p>
+      <p class="note">Spec files: <code>tests/green-kart-home/</code>. Test plan: <code>tests/green-kart-home-page.plan.md</code>.</p>
+    </section>
+
+    <footer>Generated from the Playwright run output. Failed checks describe observed application behavior against the test plan; they do not imply that the public demo was modified.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Local browser and editor state
+/.playwright-mcp/
+/.vscode/mcp.json
+/playwright-demo/
+
+# Generated test-run artifacts; curated screenshots live under tests/report-assets/
+/test-results-full-project-*/
